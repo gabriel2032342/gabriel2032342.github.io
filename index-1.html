@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería Mi Sabor</title>
+    <style>
+        /* General */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f3ec;
+            color: #3e2723;
+        }
+
+        /* Encabezado */
+        header {
+            background-image: url('https://www.example.com/cafe-background.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Superposición oscura sobre la imagen */
+            z-index: 0;
+        }
+
+        header h1 {
+            font-size: 4em;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: #5d4037;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #d7ccc8;
+            color: #3e2723;
+        }
+
+        /* Sección de contenido */
+        main {
+            padding: 40px;
+            background-color: #f9f3ec;
+        }
+
+        main h2 {
+            color: #3e2723;
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        main p {
+            color: #5d4037;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        /* Sección del menú con cuadro */
+        .menu-box {
+            border: 2px solid #8d6e63;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-box:hover {
+            transform: translateY(-10px); /* Efecto elevación */
+        }
+
+        .menu-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-box ul li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #ffe0b2;
+            border-radius: 8px;
+            color: #3e2723;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.4em;
+            cursor: pointer; /* Cambiar el cursor a puntero */
+            transition: background-color 0.3s ease; /* Efecto de hover */
+        }
+
+        .menu-box ul li:hover {
+            background-color: #d7ccc8; /* Cambia el color al pasar el ratón */
+        }
+
+        /* Sección de productos */
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            background-color: #f3e5ab;
+            border: 1px solid #8d6e63;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Cambiar el cursor a puntero */
+        }
+
+        .producto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .producto h3 {
+            margin-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .producto p {
+            font-size: 1.3em;
+            color: #5d4037;
+        }
+
+        /* Sección de contacto */
+        #contacto {
+            background-color: #ffe0b2;
+            padding: 60px;
+            text-align: center;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            border-radius: 15px;
+        }
+
+        #contacto h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+        }
+
+        #contacto p {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        /* Sección de pago */
+        #pago {
+            display: none; /* Oculta la sección de pago por defecto */
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        /* Botón de realizar pago */
+        .btn {
+            padding: 10px 20px;
+            background-color: #795548;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #4e342e;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #795548;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Cafetería Mi Sabor</h1>
+        <p>El mejor café para cualquier momento</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Menú</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de inicio -->
+    <section id="inicio">
+        <main>
+            <h2>Bienvenidos a Mi Sabor</h2>
+            <p>Disfruta de una experiencia única en nuestra cafetería, con el mejor café y productos para llevar. Relájate en un ambiente acogedor.</p>
+        </main>
+    </section>
+
+    <!-- Sección del menú con cuadro -->
+    <section id="menu">
+        <main>
+            <h2>Menú</h2>
+            <div class="menu-box">
+                <ul>
+                    <li onclick="mostrarPago('Café Americano', 2.00)">Café Americano - $2.00</li>
+                    <li onclick="mostrarPago('Latte', 2.50)">Latte - $2.50</li>
+                    <li onclick="mostrarPago('Cappuccino', 3.00)">Cappuccino - $3.00</li>
+                    <li onclick="mostrarPago('Mocha', 3.50)">Mocha - $3.50</li>
+                    <li onclick="mostrarPago('Brownie', 1.50)">Brownie - $1.50</li>
+                    <li onclick="mostrarPago('Pastel de Chocolate', 3.00)">Pastel de Chocolate - $3.00</li>
+                </ul>
+            </div>
+        </main>
+    </section>
+
+    <!-- Sección de productos -->
+    <section id="productos">
+        <main>
+            <h2>Productos para Llevar</h2>
+            <div class="productos">
+                <div class="producto" onclick="mostrarPago('Café en Grano', 8.00)">
+                    <h3>Café en Grano (500g)</h3>
+                    <p>$8.00</p>
+                </div>
+                <div class="producto" onclick="mostrarPago('Café Molido', 8.50)">
+                    <h3>Café Molido (500g)</h3>
+                    <p>$8.50</p>
+                </div>
+                <div class="producto" onclick="mostrarPago('Cápsulas de Café', 10.00)">
+                    <h3>Cápsulas de Café (Caja de 10)</h3>
+                    <p>$10.00</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- Sección de pago -->
+    <section id="pago">
+        <h2>Página de Pago</h2>
+        <div class="producto-info">
+            <p id="producto"></p>
+            <p id="precio"></p>
+        </div>
+        <button class="btn" onclick="realizarPago()">Realizar Pago</button>
+        <button class="btn" onclick="ocultarPago()">Cancelar</button>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <main>
+            <h2>Contacto</h2>
+            <p>Dirección: Calle 123, Ciudad</p>
+            <p>Teléfono: (123) 456-7890</p>
+            <p>Email: info@misaborcafeteria.com</p>
+        </main>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Cafetería Mi Sabor. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarPago(producto, precio) {
+            document.getElementById('producto').textContent = `Producto: ${producto}`;
+            document.getElementById('precio').textContent = `Precio: $${precio.toFixed(2)}`;
+            document.getElementById('pago').style.display = 'block'; // Muestra la sección de pago
+        }
+
+        function ocultarPago() {
+            document.getElementById('pago').style.display = 'none'; // Oculta la sección de pago
+        }
+
+        function realizarPago() {
+            // Aquí puedes agregar la lógica para procesar el pago
+            alert('Pago realizado exitosamente. Gracias por tu compra!');
+            ocultarPago(); // Oculta la sección de pago después de realizar el pago
+        }
+    </script>
+
+</body>
+</html>
