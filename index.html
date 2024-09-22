@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería Mi Sabor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3e5ab; /* Color crema */
+            color: #3e2723; /* Color marrón oscuro */
+        }
+        /* Encabezado */
+        header {
+            background-color: #8d6e63;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Barra de navegación */
+        nav {
+            background-color: #4e342e;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #d7ccc8;
+            color: #3e2723;
+        }
+        /* Contenido principal */
+        main {
+            padding: 20px;
+            background-color: #f3e5ab;
+        }
+        main h2 {
+            color: #3e2723;
+        }
+        main p {
+            color: #5d4037;
+        }
+        /* Sección de menú con cuadro */
+        .menu-box {
+            border: 2px solid #8d6e63;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #ffe0b2;
+            border-radius: 10px;
+        }
+        .menu-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-box ul li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #d7ccc8;
+            border-radius: 5px;
+            color: #3e2723;
+            font-weight: bold;
+        }
+        /* Sección de productos */
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .producto {
+            background-color: #d7ccc8;
+            border: 1px solid #8d6e63;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 30%;
+            border-radius: 8px;
+        }
+        /* Enlaces */
+        a {
+            color: #8d6e63;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Pie de página */
+        footer {
+            background-color: #8d6e63;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Cafetería Mi Sabor</h1>
+        <p>¡El mejor café con el mejor sabor!</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Menú</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de inicio -->
+    <section id="inicio">
+        <main>
+            <h2>Bienvenidos a Mi Sabor</h2>
+            <p>Relájate y disfruta del mejor café en nuestra cafetería, con un ambiente acogedor y productos de alta calidad.</p>
+        </main>
+    </section>
+
+    <!-- Sección del menú con cuadro -->
+    <section id="menu">
+        <main>
+            <h2>Menú</h2>
+            <div class="menu-box">
+                <ul>
+                    <li>Café Americano - $2.00</li>
+                    <li>Latte - $2.50</li>
+                    <li>Cappuccino - $3.00</li>
+                    <li>Mocha - $3.50</li>
+                    <li>Brownie - $1.50</li>
+                    <li>Pastel de Chocolate - $3.00</li>
+                </ul>
+            </div>
+        </main>
+    </section>
+
+    <!-- Sección de productos -->
+    <section id="productos">
+        <main>
+            <h2>Productos para Llevar</h2>
+            <div class="productos">
+                <div class="producto">
+                    <h3>Café en Grano (500g)</h3>
+                    <p>$8.00</p>
+                </div>
+                <div class="producto">
+                    <h3>Café Molido (500g)</h3>
+                    <p>$8.50</p>
+                </div>
+                <div class="producto">
+                    <h3>Cápsulas de Café (Caja de 10)</h3>
+                    <p>$10.00</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <main>
+            <h2>Contacto</h2>
+            <p>Dirección: Calle 123, Ciudad</p>
+            <p>Teléfono: (123) 456-7890</p>
+            <p>Email: info@misaborcafeteria.com</p>
+        </main>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Cafetería Mi Sabor. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
